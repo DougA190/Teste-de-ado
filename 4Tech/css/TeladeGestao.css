@@ -1,0 +1,350 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Da+2:wght@400;500;700&family=Inter:wght@100;400;700&family=Mulish:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400&display=swap');
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css");
+
+:root {
+    --font-primary--: "Inter", serif;
+    --font-secondary--: "Baloo da 2", serif;
+    --font-action--: "Mulish", serif;
+
+
+    --color-primary--: #1b1b1d;
+    --color-secondary--: #b9d0fc;
+    --color-action--: #3578F5;
+    --color-error--: #e63636;
+}
+
+
+* {
+    text-decoration: none;
+    margin: 0;
+    padding: 0;
+}
+
+
+
+header {
+    width: 100%;
+    height: 15vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color-primary--);
+}
+
+.logo,
+.logo img {
+    height: 100%;
+    left: auto;
+}
+
+.logado {
+    text-align: end;
+    width: 100%;
+    margin-right: 50px;
+    color: #fff;
+}
+
+.titulo {
+    width: 100%;
+    height: 10vh;
+
+    text-align: center;
+    font-family: var(--font-primary--);
+    font-style: normal;
+    font-size: 15px;
+    line-height: 54px;
+    color: #000000;
+}
+
+.area-gestao {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Tabela de usuarios  */
+table {
+    border-style: hidden;
+    margin-top: 20px;
+    width: 570px;
+    margin-left: 350px;
+    right: 540px;
+}
+
+
+thead {
+    background-color: #adadad;
+}
+
+
+td {
+    padding: 0px;
+    background-color: white;
+}
+
+.form-gestao {
+    width: 90%;
+    height: 60vh;
+    left: 67px;
+    top: 216px;
+    text-align: center;
+    background: #B9D0FC;
+    border: 1px solid rgba(0, 0, 0, 0.46);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+}
+
+
+input {
+    box-sizing: border-box;
+    margin-top: 5px;
+    margin-right: 20px;
+    width: 320px;
+    height: 33px;
+    border: 1px solid #000000;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    font-size: 18px;
+    padding-left: 10px;
+}
+.dados-gestao{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.dados-gestao h2 {
+    margin-right: 10px;
+    font-family: var(--font-secondary--);
+    font-weight: 400;
+}
+
+.dados-gestao span {
+    display: none;
+    font-size: 12px;
+    color: var(--color-error--);
+    margin: 3px 0 0 1px;
+}
+
+
+button {
+    width: 250px;
+    height: 40px;
+    border-radius: 8px;
+    
+    margin-left: 10px;
+    cursor: pointer;
+    font-family: var(--font-action--);
+    font-weight: 700;
+    background-color: var(--color-action--);
+}
+
+.area-controle {
+    width: 100%;
+    height: 15vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Modal Ativar/Desativar Usuario */
+.modalAtivar {
+    font-family: var(--font-primary);
+    text-align: center;
+}
+
+.modalAtivar h1 {
+    margin-bottom: 1rem;
+}
+
+.modalAtivar button {
+    padding: 0.6rem 1.2rem;
+    background-color: var(--color-action--);
+    color: #fff;
+    border: none;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    opacity: 0.9;
+    font-size: 1rem;
+}
+
+.modalAtivar button:hover {
+    opacity: 1;
+}
+
+#fadeAtivar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 5;
+}
+
+#modalAtivar {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    max-width: 90%;
+    background-color: #fff;
+    padding: 1.2rem;
+    border-radius: 0.5rem;
+    z-index: 10;
+}
+
+#fadeAtivar,
+#modalAtivar {
+    transition: 0.5s;
+    opacity: 1;
+    pointer-events: all;
+}
+
+.modalAtivar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    left: 200px;
+
+
+}
+
+.ctrl-modalAtivar {
+    display: flex;
+}
+
+
+.modalAtivar-body p {
+    margin-bottom: 1rem;
+    font-family: 'Inter';
+}
+
+
+.modalAtivar-body a {
+    font-size: 2em;
+}
+
+.modalAtivar-body i {
+    text-align: center;
+    color: #25D366;
+}
+
+
+#modalAtivar.hide,
+#fadeAtivar.hide {
+    opacity: 0;
+    pointer-events: none;
+}
+
+
+#modalAtivar.hide {
+    top: 0;
+}
+
+
+/* Modal Editar Usuario */
+.modalEditar {
+    font-family: var(--font-primary);
+    text-align: center;
+}
+
+.modalEditar h1 {
+    margin-bottom: 1rem;
+}
+
+.modalEditar button {
+    padding: 0.6rem 1.2rem;
+    background-color: var(--color-action--);
+    color: #fff;
+    border: none;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    opacity: 0.9;
+    font-size: 1rem;
+}
+
+.modalEditar button:hover {
+    opacity: 1;
+}
+
+#fadeEditar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 5;
+}
+
+#modalEditar {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    max-width: 90%;
+    background-color: #fff;
+    padding: 1.2rem;
+    border-radius: 0.5rem;
+    z-index: 10;
+}
+
+#fadeEditar,
+#modalEditar {
+    transition: 0.5s;
+    opacity: 1;
+    pointer-events: all;
+}
+
+.modalEditar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    left: 200px;
+
+
+}
+
+.ctrl-modalEditar {
+    display: flex;
+}
+
+
+.modalEditar-body p {
+    margin-bottom: 1rem;
+    font-family: 'Inter';
+}
+
+
+.modalEditar-body a {
+    font-size: 2em;
+}
+
+.modalEditar-body i {
+    text-align: center;
+    color: #25D366;
+}
+
+
+#modalEditar.hide,
+#fadeEditar.hide {
+    opacity: 0;
+    pointer-events: none;
+}
+
+
+#modalEditar.hide {
+    top: 0;
+}
