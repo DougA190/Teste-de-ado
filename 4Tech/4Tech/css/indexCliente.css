@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Da+2:wght@400;500;700&family=Inter:wght@100;400;700&family=Mulish:wght@300;400;700&display=swap');
+
+:root {
+  --font-primary--: "Inter", serif;
+  --font-secondary--: "Baloo da 2", serif;
+  --font-action--: "Mulish", serif;
+
+  --color-primary--: #1b1b1d;
+  --color-secondary--: #b9d0fc;
+  --color-action--: #3578F5;
+  --color-error--: #e63636;
+
+
+}
+
+* {
+  text-decoration: none!important;
+  margin: 0;
+  padding: 0;
+}
+
+
+header {
+  width: 100%;
+  height: 15vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--color-primary--);
+  margin-bottom: 2rem;
+}
+
+.logo,
+.logo img {
+  height: 100%;
+  position: relative;
+}
+
+.acesso{
+  width: 55rem;
+  height: 60rem;
+  position: absolute;
+  right: 1rem;
+  text-align: center;
+  top: 3rem;
+  /* background-color: #fff; */
+}
+.acesso i{
+  color: #fff;
+  font-size: 2.0rem;
+  position: relative;
+  top: -40px;
+  right: -265px;
+  
+}
+.acesso a{
+  font-family: var(--font-secondary--);
+  position: relative;
+  top: -5px;
+  right: -1.5rem;
+  font-size: 10px;
+}
+.nome{
+    color: white;
+    margin-left: 600px;
+}
+
+
+.card {
+  transition: all 0.3s ease-out;
+
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  cursor: pointer;
+}
+
+.card-ctrl {
+  margin: .5rem;
+  text-align: center;
+}
+
+.card-ctrl button {
+  width: 80%;
+  background-color: var(--color-action--);
+  font-family: var(--font-action--);
+  border-radius: 5px;
+}
+
+.card-ctrl button i {
+  color: rgba(0, 0, 0, .9);
+  margin-left: .2rem;
+
+}
+
+.card p {
+  color: #a3a5ae;
+  font-size: 16px;
+}
+
+.carrinho {
+  width: 30px;
+  height: 30px;
+  background-color: var(--color-action--);
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  right: 10px;
+  bottom: 30px;
+}
+
+.carrinho i {
+  color: #fff;
+}
+

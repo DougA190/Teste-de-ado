@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Da+2:wght@400;500;700&family=Inter:wght@100;400;700&family=Mulish:wght@300;400;700&display=swap');
+
+:root {
+  --font-primary--: "Inter", serif;
+  --font-secondary--: "Baloo da 2", serif;
+  --font-action--: "Mulish", serif;
+
+  --color-primary--: #1b1b1d;
+  --color-secondary--: #b9d0fc;
+  --color-action--: #3578F5;
+  --color-error--: #e63636;
+
+
+}
+
+* {
+  text-decoration: none;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  width: 100%;
+  height: 15vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--color-primary--);
+}
+
+.logo,
+.logo img {
+  height: 100%;
+}
+
+body {
+  background-color: #fafafa;
+}
+
+
+.area-backoffice {
+  height: 70vh;
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: var(--font-primary--);
+}
+
+.card {
+  border-radius: 5px;
+  box-shadow: 7px 7px 13px 0px rgba(50, 50, 50, 0.22);
+  padding: 30px;
+  margin: 20px;
+  width: 400px;
+  transition: all 0.3s ease-out;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  cursor: pointer;
+}
+
+.card p {
+  color: #a3a5ae;
+  font-size: 16px;
+}
+
+.image {
+  float: right;
+  max-width: 64px;
+  max-height: 64px;
+}
+
+footer {
+  width: 100%;
+  height: 15vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--color-primary--);
+}
+
+footer a {
+  color: #Ffff;
+}
