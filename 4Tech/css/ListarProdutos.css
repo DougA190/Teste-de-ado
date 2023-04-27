@@ -8,3 +8,67 @@ body{
     justify-content: center;
     gap: -1;
 }
+/* Estilos para o fundo escuro fora do modal */
+.modal {
+  display: none; /* Oculta o modal por padrão */
+  position: fixed; /* Posição fixa para manter o modal no centro da tela */
+  z-index: 1; /* Define a ordem de empilhamento para ficar em cima de outros elementos */
+  left: 0;
+  top: 0;
+  width: 100%; /* Define a largura como 100% da largura da tela */
+  height: 100%; /* Define a altura como 100% da altura da tela */
+  overflow: auto; /* Permite rolar a página se o conteúdo do modal for maior do que a tela */
+  background-color: rgba(0,0,0,0.4); /* Cor de fundo escuro com transparência */
+}
+
+/* Estilos para o conteúdo do modal */
+.modal-content {
+  background-color: var(--color-secondary--); /* Cor de fundo branca */
+  margin: 1% 30%; /* Centraliza o modal vertical e horizontalmente */
+  padding: 20px; /* Adiciona espaço interno */
+  border: 1px solid #888;
+  width: 80%; /* Define a largura do modal */
+  max-width: 500px; /* Define a largura máxima do modal */
+  border-radius: 20px;
+}
+
+/* Estilos para o header do modal */
+.modal-header , .modal-body{
+  display: flex; /* Usa um layout flexível para alinhar o conteúdo */
+  justify-content: center; /* Alinha o conteúdo horizontalmente no centro */
+  align-items: center; /* Alinha o conteúdo verticalmente no centro */
+  margin-bottom: 20px; /* Adiciona espaço abaixo do header */
+}
+
+/* Estilos para o rodapé do modal */
+.modal-footer {
+  display: flex; /* Usa um layout flexível para alinhar o conteúdo */
+  justify-content: space-evenly; 
+  align-items: center; /* Alinha o conteúdo verticalmente no centro */
+}
+
+/* Estilos para os botões no rodapé */
+.modal-footer button {
+  background-color: #4CAF50; /* Cor de fundo verde para o botão de confirmação */
+  color: white; /* Cor do texto do botão de confirmação */
+  border: none;
+  padding: 10px 20px; /* Adiciona espaço interno ao botão */
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px; /* Adiciona margem ao redor do botão */
+  cursor: pointer;
+  border-radius: 5px; /* Adiciona borda arredondada para o botão */
+}
+
+/* Estilos para o botão de cancelamento */
+.modal-footer #cancelar {
+  background-color: #f44336; /* Cor de fundo vermelha para o botão de cancelamento */
+}
+input::after {
+  content: "→";
+  font-size: 16px;
+  margin-left: 5px;
+  color: black;
+}

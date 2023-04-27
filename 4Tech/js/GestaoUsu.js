@@ -1,45 +1,67 @@
-const openModalButton = document.querySelector("#open-modalAtivar");
-const closeModalButton = document.querySelector("#close-modalAtivar");
-const modal = document.querySelector("#modalAtivar");
-const fade = document.querySelector("#fadeAtivar");
+const modal = document.getElementById("myModal");
+const spanModal = document.getElementById("spanModal");
+const checkbox = document.getElementsByClassName("myCheckbox");
 
-const openModalButton2 = document.querySelector("#open-modalEditar");
-const closeModalButton2 = document.querySelector("#close-modalEditar");
-const modal2 = document.querySelector("#modalEditar");
-const fade2 = document.querySelector("#fadeEditar");
+var status_usuario;
+var id_usuario;
+var search = document.getElementById('pesquisar');
 
-const toggleModal = () => {
-  modalAtivar.classList.toggle("hide");
-  fadeAtivar.classList.toggle("hide");
-};
-
-const toggleModal2 = () => {
-  modalEditar.classList.toggle("hide");
-  fadeEditar.classList.toggle("hide");
-};
-
-[openModalButton, closeModalButton, fadeAtivar].forEach((el) => {
-  el.addEventListener("click", () => toggleModal());
+search.addEventListener("keydown",function(event){
+  if(event.key == "Enter")
+  {
+    searchData();
+  }
 });
 
-[openModalButton2, closeModalButton2, fadeEditar].forEach((el2) => {
-  el2.addEventListener("click", () => toggleModal2());
+  function searchData(){
+    window.location = 'GestaoUsuarios.php?search='+search.value;
+  }
+
+function abrirModal(id, status) {
+
+  id_usuario = id;
+  status_usuario = status;
+
+  modal.style.display = "block";
+  if (status_usuario == 1) {
+    spanModal.textContent = 'inativar';
+  } else {
+    spanModal.textContent = 'ativar';
+  }
+
+}
+
+// Obtém os botões de confirmação e cancelamento
+var confirmarBtn = document.getElementById("confirmar");
+var cancelarBtn = document.getElementById("cancelar");
+
+// Adiciona um evento de clique para o botão de confirmação
+confirmarBtn.addEventListener('click', () => {
+  var novoStatus = 0;
+  if (status_usuario == 1) {
+    novoStatus = 2;
+  } else {
+    novoStatus = 1;
+  }
+  $.ajax({
+    url: "alterarStatus.php",
+    type: "post",
+    data: {
+      id: id_usuario,
+      status: novoStatus,
+      usuario: 'usuario'
+    },
+    success: window.location.href = "gestaoUsuarios.php"
+  });
+  modal.style.display = "none";
+
 });
 
+// Adiciona um evento de clique para o botão de cancelamento
+cancelarBtn.addEventListener('click', function () {
+  // Fecha o modal
+  window.location.href = "gestaoUsuarios.php";
 
-var editarSenha = document.querySelector("#editarSenha");
-var editarSenha2 = document.querySelector("#editarSenha2");
+});
 
-editarSenha.disabled = true;
-editarSenha2.disabled = true;
-
-function enable() {
-  document.querySelector("#editarSenha").disabled = false;
-  document.querySelector("#editarSenha2").disabled = false;
-}
-
-function disable() {
-  document.querySelector("#editarSenha").disabled = true;
-  document.querySelector("#editarSenha2").disabled = true;
-}
 
