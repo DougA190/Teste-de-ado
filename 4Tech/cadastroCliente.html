@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/estaticos.css">
+  <link rel="stylesheet" href="css/cadastroClientes.css">
+  <title>4Tech</title>
+</head>
+
+<body>
+
+  <nav class="navbar bg-body-tertiary">
+    <div class="container-fluid">
+      <a href="index.php">
+        <img src="img/Logo.png" height="80" alt="Logo" class="d-inline-block ">
+      </a>
+      <a href="loginCliente.php"><span class="d-flex justify-content-end">Já tenho um acesso</span></a>
+    </div>
+  </nav>
+
+
+  <div class="container-md">
+    <form class="cadastro-cliente" action="cadastrarCliente.php" method="post">
+      <!-- Inicio da sessão de dados-->
+      <h1 class="text-center">Cadastre-se</h1>
+      <section class="dados-pessoais">
+        <div class="row mb-3">
+          <label for="" class="col-sm-2 col-form-label">Nome:</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control required" name="nome" placeholder="Nome" 
+            onchange="validaNome()" required>
+            <span class="span-required">O nome precisa de no mínimo 3 caracteres</span>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <label for="" class="col-sm-2 col-form-label">Sobrenome:</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control required" name="sobrenome" placeholder="Sobrenome"
+            onchange="validaSobrenome()" required>
+            <span class="span-required">O sobrenome precisa de no mínimo 3 caracteres</span>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <label for="" class="col-sm-2 col-form-label">CPF</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control required" name="cpf" maxlength="14" placeholder="CPF"
+             oninput="mascaraCPF()" required>
+            <span class="span-required">Digite um CPF válido</span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 col-md-6 col-lg-6">
+            <label for="">Data de nascimento: </label>
+            <input class="" type="date" name="dataNasc" required>
+            <span class="span-required">Selecione uma data</span>
+          </div>
+          <div class="col-12 col-md-6 col-lg-6 genero">
+            <label>Genêro:</label>
+            <div class="form-check form-check-inline">
+              <label class="form-check-label" for="masculino">Masculino</label>
+              <input class="form-check-input" type="radio" name="genero" id="masculino" value="masculino">
+            </div>
+            <div class="form-check form-check-inline">
+              <label class="form-check-label" for="feminino">Feminino</label>
+              <input class="form-check-input" type="radio" name="genero" id="feminino" value="feminino">
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Fim da sessão de dados pessoais -->
+
+      <!-- Inicio da sessão de contatos -->
+      <section class="contatos">
+        <!-- Inicio dos contatos -->
+        <div class="row">
+          <h1 class="text-center">Contatos</h1>
+          <div class="col-2 col-md-1 col-lg-1">
+            <label>DDD: </label>
+            <input type="text" class="form-control " name="dddCelular" placeholder="00" maxlength="2" required>
+          </div>
+          <div class="col-10 col-md-5 col-lg-5">
+            <label>Celular: </label>
+            <input type="text" class="form-control " name="numCelular" placeholder="00000-0000" maxlength="10"
+              required>
+          </div>
+          <div class="col-2 col-md-1 col-lg-1">
+            <label>DDD: </label>
+            <input type="text" class="form-control " name="dddTelefone" placeholder="00" maxlength="2">
+          </div>
+          <div class="col-10 col-md-5 col-lg-5">
+            <label>Telefone: </label>
+            <input type="text" class="form-control " name="numTelefone" placeholder="0000-0000" maxlength="9">
+          </div>
+        </div>
+        <!-- Fim dos contatos -->
+      </section>
+      <!-- Fim da sessão de contatos -->
+      <!-- Inicio da sessão de enderecos -->
+      <section class="enderecos">
+
+        <!-- Endereco de cobranca -->
+        <div class="endereco-cobranca">
+          <div class="row">
+            <h1 class="text-center">Endereço de cobrança</h1>
+            <div class="col-12 col-md-2 col-lg-2">
+              <label>Cep: </label>
+              <input type="text" class="form-control  cep" id="txtCep" name="cepCobranca"
+                placeholder="00000-000" oninput="mascaraCep()" onchange="buscaCep(this)" required>
+            </div>
+            <div class="col-12 col-md-10 col-lg-10">
+              <label>Logradouro: </label>
+              <input type="text" class="form-control " id="txtLogradouro" name="logradouroCobranca"
+                placeholder="Logradouro" required>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-6 col-md-2 col-lg-2">
+              <label>Número: </label>
+              <input type="number" class="form-control " id="txtNumero" name="numeroCobranca" placeholder="00"
+                required>
+            </div>
+            <div class="col-6 col-md-4 col-lg-4">
+              <label>Complemento: </label>
+              <input type="text" class="form-control " id="txtComplemento" name="complementoCobranca"
+                placeholder="Complemento">
+            </div>
+            <div class="col-12 col-md-6 col-lg-6">
+              <label>Bairro: </label>
+              <input type="text" class="form-control " id="txtBairro" name="bairroCobranca" placeholder="Bairro"
+                required>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-6 col-md-8 col-lg-8">
+              <label>Cidade: </label>
+              <input type="text" class="form-control " id="txtCidade" name="cidadeCobranca" placeholder="Cidade"
+                required>
+            </div>
+            <div class="col-12 col-md-4 col-lg-4">
+              <label>UF: </label>
+              <select class="form-select form-select-md mb-3" id="slcUf" name="ufCobranca"
+                aria-label=".form-select-lg example" required>
+                <option selected>Selecione uma das opções</option>
+                <option value="AC">AC</option>
+                <option value="AL">AL</option>
+                <option value="AP">AP</option>
+                <option value="AM">AM</option>
+                <option value="BA">BA</option>
+                <option value="CE">CE</option>
+                <option value="DF">DF</option>
+                <option value="ES">ES</option>
+                <option value="GO">GO</option>
+                <option value="MA">MA</option>
+                <option value="MT">MT</option>
+                <option value="MS">MS</option>
+                <option value="MG">MG</option>
+                <option value="PA">PA</option>
+                <option value="PB">PB</option>
+                <option value="PR">PR</option>
+                <option value="PE">PE</option>
+                <option value="PI">PI</option>
+                <option value="RJ">RJ</option>
+                <option value="RN">RN</option>
+                <option value="RS">RS</option>
+                <option value="RO">RO</option>
+                <option value="RR">RR</option>
+                <option value="SC">SC</option>
+                <option value="SP">SP</option>
+                <option value="SE">SE</option>
+                <option value="TO">TO</option>
+
+              </select>
+            </div>
+            <div class="col">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="copiarEndereco" id="copiarEndereco">
+                <label class="form-check-label" for="copiarEndereco">
+                  Definir o mesmo endereço para entrega
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Inicio endereco de entrega -->
+        <div class="enderecos-entrega">
+          <div class="endereco">
+            <div class="row">
+              <h1 class="text-center">Endereço de entrega</h1>
+              <div class="col-12 col-md-2 col-lg-2">
+                <label>Cep: </label>
+                <input type="text" class="form-control  cep" name="cepEntrega" id="txtCepEntrega"
+                  placeholder="00000-000" oninput="mascaraCep()" onchange="buscaCepEntrega()" required>
+              </div>
+              <div class="col-12 col-md-10 col-lg-10">
+                <label>Logradouro: </label>
+                <input type="text" class="form-control  logradouro" name="logradouroEntrega" id="txtLogradouroEntrega"
+                  placeholder="Logradouro" required>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-6 col-md-2 col-lg-2">
+                <label>Número: </label>
+                <input type="number" class="form-control  numero" name="numeroEntrega" id="txtNumeroEntrega"
+                  placeholder="00" required>
+              </div>
+              <div class="col-6 col-md-4 col-lg-4">
+                <label>Complemento: </label>
+                <input type="text" class="form-control  complemento" name="complementoEntrega"
+                  id="txtComplemento" placeholder="Complemento">
+              </div>
+              <div class="col-12 col-md-6 col-lg-6">
+                <label>Bairro: </label>
+                <input type="text" class="form-control  bairro" name="bairroEntrega" id="txtBairroEntrega"
+                  placeholder="Bairro" required>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-6 col-md-8 col-lg-8">
+                <label>Cidade: </label>
+                <input type="text" class="form-control  cidade" name="cidadeEntrega" id="txtCidadeEntrega"
+                  placeholder="Cidade" required>
+              </div>
+              <div class="col-12 col-md-4 col-lg-4">
+                <label>UF: </label>
+                <select class="form-select form-select-md mb-3 uf" name="ufEntrega" id="slcUfEntrega"
+                  aria-label=".form-select-lg example" required>
+                  <option selected>Selecione uma das opções</option>
+                  <option value="AC">AC</option>
+                  <option value="AL">AL</option>
+                  <option value="AP">AP</option>
+                  <option value="AM">AM</option>
+                  <option value="BA">BA</option>
+                  <option value="CE">CE</option>
+                  <option value="DF">DF</option>
+                  <option value="ES">ES</option>
+                  <option value="GO">GO</option>
+                  <option value="MA">MA</option>
+                  <option value="MT">MT</option>
+                  <option value="MS">MS</option>
+                  <option value="MG">MG</option>
+                  <option value="PA">PA</option>
+                  <option value="PB">PB</option>
+                  <option value="PR">PR</option>
+                  <option value="PE">PE</option>
+                  <option value="PI">PI</option>
+                  <option value="RJ">RJ</option>
+                  <option value="RN">RN</option>
+                  <option value="RS">RS</option>
+                  <option value="RO">RO</option>
+                  <option value="RR">RR</option>
+                  <option value="SC">SC</option>
+                  <option value="SP">SP</option>
+                  <option value="SE">SE</option>
+                  <option value="TO">TO</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <!-- Fim endereco de entrega -->
+        <!-- Botão para adicionar outro endereço
+        <div class="adicionar-endereco text-center">
+          <button type="button" class="btn btn-primary" onclick="adicionarEndereco()">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-square"
+              viewBox="0 0 16 16">
+              <path
+                d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z">
+              </path>
+              <path
+                d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z">
+              </path>
+            </svg>
+            Adicionar endereço
+          </button>
+        </div> -->
+        <!-- Fim Botão para adicionar outro endereço -->
+      </section>
+      <!-- Fim da sessão de enderecos -->
+
+      <!-- Inicio da sessão de acessos -->
+      <section class="acessos">
+        <h1 class="text-center">Acesso</h1>
+        <div class="row">
+          <div class="col-12 col-md-6 col-lg-6">
+            <label>E-mail: </label>
+            <input type="email" class="form-control required" name="email" id="email" placeholder="E-mail"
+              aria-placeholder="exemplo@exemplo.com" onchange="validaEmail()" required>
+            <span class="span-required">E-mail no formato: exemplo@exemplo.com</span>
+          </div>
+          <div class="col-12 col-md-6 col-lg-6">
+            <label>Confirmação de E-mail: </label>
+            <input type="email" class="form-control required" name="confEmail" placeholder="Confirme seu e-mail"
+              onchange="comparaEmail()" required>
+            <span class="span-required">Os e-mails não combinam</span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 col-md-6 col-lg-6">
+            <label>Senha: </label>
+            <input type="password" class="form-control required" name="senha" placeholder="Senha" onchange="validaSenha()" required
+              >
+            <span class="span-required">A senha necessita de no minimo 8 caracteres</span>
+          </div>
+          <div class="col-12 col-md-6 col-lg-6">
+            <label>Confirmação de senha: </label>
+            <input type="password" class="form-control required" name="confSenha" placeholder="Confirme sua senha"
+              onchange="comparaSenha()" required>
+            <span class="span-required">As senhas não combinam</span>
+          </div>
+        </div>
+      </section>
+      <!-- Fim da sessão de acessos -->
+      <div class="col text-center ctrl-cadastro">
+        <button type="button btn-cadastrar" name="cadastrarCliente"class="btn btn-primary">
+          Confirmar dados
+        </button>
+      </div>
+    </form>
+  </div>
+  <footer>
+    <a href="loginBackoffice.html">Acesso restrito</a>
+  </footer>
+  <script src="js/cep.js"></script>
+  <script src="js/cadastroCliente.js"></script>
+  <script src="js/validacoesCliente.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+    crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js"></script>
+</body>
+
+</html>

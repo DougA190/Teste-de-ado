@@ -1,0 +1,54 @@
+
+.btn-carrinho-compra {
+    width: 40px;
+    height: 40px;
+    background-color: var(--color-action--);
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    right: 20px;
+    bottom: 30px;
+    z-index: 1000;
+  }
+  #btnCarrinho :hover{
+    cursor: pointer;
+  }
+  .btn-carrinho-compra i {
+    color: #fff;
+    font-size: 20px;
+  }
+  
+  .offcanvas-header :not(button) {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  
+  #tbl-carrinho {
+    width: 100%;
+  }
+  
+  #tbl-carrinho {
+    /* display: flex; */
+    justify-content: space-around;
+  }
+  
+  .col-quantidade {
+    display: flex;
+  }
+  
+  .col-quantidade input {
+    width: 50px;
+    margin-right: 1px;
+    border-radius: 2px;
+  }
+  
+  .ctrl-compra button {
+    background-color: var(--color-action--);
+    color: #fff;
+    font-family: var(--font-action--);
+    width: 300px;
+    border-radius: 5px;
+  }

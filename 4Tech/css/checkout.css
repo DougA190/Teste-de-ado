@@ -1,0 +1,13 @@
+.form-pedido{
+    border-right: 2px solid #ccc;
+    
+}
+.container{
+    border: 2px solid #ccc;
+}
+.cartao-credito{
+    display: none;
+}
+form{
+    padding-bottom: 5px;
+}
